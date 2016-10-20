@@ -8,7 +8,7 @@ https://github.com/oskimura/ulang.git
 主な流れとしては字句解析器、構文解析器を行って中間表現に変換しcompileモジュールを使ってBEAMで実行可能なバイナリを作成するという流れです。
 今回はulang.xrlで字句解析を行い、ulang_yecc.yrlで構文解析及び中間表現の出力、compiler.erlでバイナリ出力するようにつくりました。
 
-### 字句解析器
+## 字句解析器
 -------------------
 Erlangにはleexという字句解析器があります。
 http://erlang.org/doc/man/leex.html
@@ -58,7 +58,7 @@ Definitionsで定義された定義を仕様するには
 今回はこのように作成しました
 https://github.com/oskimura/ulang/blob/master/ulang/src/ulang.xrl
 
-### 構文解析器
+## 構文解析器
 -------------
 同じようにErlangにはyeccという構文解析器があります。
 http://erlang.org/doc/man/yecc.html
@@ -103,7 +103,7 @@ https://github.com/oskimura/ulang/blob/master/ulang/src/ulang_yecc.yrl
 
 
 
-### 中間表現
+## 中間表現
 erl_syntaxというドキュメントに中間表現のシンタックスツリーを組み立てるためのAPI書いてありますが、
 http://erlang.org/doc/man/erl_syntax.html
 今回コレは使用せずに自分で組み立てる事にします。
@@ -113,7 +113,7 @@ http://erlang.org/doc/man/erl_syntax.html
 
 
 
-###compileモジュール
+### compileモジュール
 生成された中間表現をコンパイルしてバイナリを出力するのはcompileモジュールでおこないます。　
 http://www.erlang.org/doc/man/compile.html
 
@@ -132,7 +132,7 @@ Moduleはモジュール名、Binaryは変換バイナリ、Worningはコンパ�
 https://github.com/oskimura/ulang/blob/master/ulang/src/compiler.erl
 
 
-### 中間表現について
+## 中間表現について
 ---------------------
 中間表現は基本的にタプルで表現され、{タグ名,ソース行数,引数1,引数2,...}といった形になっています。
 このタグのリストが中間表現です。compileモジュールの関数に渡すことでバイナリへとコンパイルされます。
@@ -338,7 +338,7 @@ var := {var,Line,VarNme}
 
 Lineは行数、FunctionNameは関数名、Argsは引数のリストです。
 
-####関数呼び出し
+#### 関数呼び出し
 他のモジュールで宣言された関数はremote callで呼び出す必要があります。
 
 ````
@@ -390,7 +390,7 @@ matchexp := {clause, Line, Match, Test, Bodys}
 
 MatchExpは上のソースでいうcaseとofの間の式にあたりますClauseの
 
-####代入
+#### 代入
 単一代入です。
 
 ````
