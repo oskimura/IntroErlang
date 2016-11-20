@@ -9,7 +9,6 @@ https://github.com/oskimura/ulang.git
 今回はulang.xrlで字句解析を行い、ulang_yecc.yrlで構文解析及び中間表現の出力、compiler.erlでバイナリ出力するようにつくりました。
 
 ## 字句解析器
--------------------
 Erlangにはleexという字句解析器があります。
 http://erlang.org/doc/man/leex.html
 類似のツールを使ったことがある人なら分かるでしょうけど、Definitions、Rules、Erlang codeに分かれています。
@@ -59,7 +58,6 @@ Definitionsで定義された定義を仕様するには
 https://github.com/oskimura/ulang/blob/master/ulang/src/ulang.xrl
 
 ## 構文解析器
--------------
 同じようにErlangにはyeccという構文解析器があります。
 http://erlang.org/doc/man/yecc.html
 yeccはErlangのコンパイラコンパイラでBNFで文法を記述できます。
@@ -133,14 +131,13 @@ https://github.com/oskimura/ulang/blob/master/ulang/src/compiler.erl
 
 
 ## 中間表現について
----------------------
 中間表現は基本的にタプルで表現され、{タグ名,ソース行数,引数1,引数2,...}といった形になっています。
 このタグのリストが中間表現です。compileモジュールの関数に渡すことでバイナリへとコンパイルされます。
 [サンプルプログラム](https://gist.github.com/oskimura/e5b58a789e74be75c60c)を例に説明します。
 Eralangの文法にかんしては[ココ](http://erlang.org/doc/reference_manual/expressions.html)を参考にしてください。
 では中間表現の説明をしていきます。
 
-#### module宣言
+### module宣言
 
 ````
 -module(sample).
@@ -162,7 +159,7 @@ Lineは行数、ModuleNameはモジュール名となります。
 attributeというタグは後述するexportなどmoduleの箇所を変えて使われます。
 ModuleNameはモジュールの名前です今回はsampleです。
 
-#### export宣言
+### export宣言
 
 ````
 -export([func1/0]).
@@ -182,7 +179,7 @@ export := {attribute,Line,export,[{f1,Arg},...]},
 exportの後に関数のリストが必要です。{変数名,関数の数}のリストという形で表現されます。
 
 
-#### 関数宣言
+### 関数宣言
 
 ````
 func1 () ->
@@ -236,7 +233,7 @@ func3(X)  when is_atom(X)  ->
 と変換されます。
 
 
-#### 文字列
+### 文字列
 ````
 string_fun() ->
     "abc".
@@ -256,7 +253,7 @@ string_fun() ->
 
 Strは文字列です
 
-#### 文字
+### 文字
 
 ````
 char_fun() ->
@@ -276,7 +273,7 @@ char_fun() ->
 ````
 
 Charは文字のASCIIコードです
-#### 整数
+### 整数
 
 ````
 integer_fun() ->
@@ -296,7 +293,7 @@ integer_fun() ->
 ````
 
 Numは数字です
-#### 演算子
+### 演算子
 ````
 op_fun() ->
     1+1.
@@ -315,7 +312,7 @@ op_fun() ->
 
 Opは演算子です。LValとRValはそれぞれ演算子の左辺と右辺です。
 
-#### 関数呼び出し
+### 関数呼び出し
 callで呼ぶことができる関数は同じモジュール内の関数に限られる。他のモジュールで宣言してある関数は 後述するremote callで呼び出す必要があります。
 
 ````
@@ -338,7 +335,7 @@ var := {var,Line,VarNme}
 
 Lineは行数、FunctionNameは関数名、Argsは引数のリストです。
 
-#### 関数呼び出し
+### 関数呼び出し
 他のモジュールで宣言された関数はremote callで呼び出す必要があります。
 
 ````
@@ -363,7 +360,7 @@ Args := {var,Line,VarNme}
 remoteが入る以外はcallと同じです。
 
 
-#### パタンマッチ
+### パタンマッチ
 パタンマッチです
 
 ````
@@ -390,7 +387,7 @@ matchexp := {clause, Line, Match, Test, Bodys}
 
 MatchExpは上のソースでいうcaseとofの間の式にあたりますClauseの
 
-#### 代入
+### 代入
 単一代入です。
 
 ````
@@ -424,7 +421,7 @@ VarにValを代入します。
 
 は整数です。Valは設定する整数です。
 
-#### リスト
+### リスト
 
 ````
 list_fun() ->
