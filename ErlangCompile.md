@@ -234,6 +234,7 @@ func3(X)  when is_atom(X)  ->
 
 
 ### 文字列
+
 ````
 string_fun() ->
     "abc".
@@ -273,6 +274,7 @@ char_fun() ->
 ````
 
 Charは文字のASCIIコードです
+
 ### 整数
 
 ````
@@ -293,7 +295,9 @@ integer_fun() ->
 ````
 
 Numは数字です
+
 ### 演算子
+
 ````
 op_fun() ->
     1+1.
@@ -313,6 +317,7 @@ op_fun() ->
 Opは演算子です。LValとRValはそれぞれ演算子の左辺と右辺です。
 
 ### 関数呼び出し
+
 callで呼ぶことができる関数は同じモジュール内の関数に限られる。他のモジュールで宣言してある関数は 後述するremote callで呼び出す必要があります。
 
 ````
@@ -336,6 +341,7 @@ var := {var,Line,VarNme}
 Lineは行数、FunctionNameは関数名、Argsは引数のリストです。
 
 ### 関数呼び出し
+
 他のモジュールで宣言された関数はremote callで呼び出す必要があります。
 
 ````
@@ -361,6 +367,7 @@ remoteが入る以外はcallと同じです。
 
 
 ### パタンマッチ
+
 パタンマッチです
 
 ````
@@ -388,6 +395,7 @@ matchexp := {clause, Line, Match, Test, Bodys}
 MatchExpは上のソースでいうcaseとofの間の式にあたりますClauseの
 
 ### 代入
+
 単一代入です。
 
 ````
