@@ -8,13 +8,7 @@ https://github.com/oskimura/ulang.git
 主な流れとしては字句解析器、構文解析器を行って中間表現に変換しcompileモジュールを使ってBEAMで実行可能なバイナリを作成するという流れです。
 今回はulang.xrlで字句解析を行い、ulang_yecc.yrlで構文解析及び中間表現の出力、compiler.erlでバイナリ出力するようにつくりました。
 
-<<<<<<< HEAD:compile.md
-### 字句解析器
-
--------------------
-=======
 ## 字句解析器
->>>>>>> refs/remotes/origin/master:ErlangCompile.md
 Erlangにはleexという字句解析器があります。
 http://erlang.org/doc/man/leex.html
 類似のツールを使ったことがある人なら分かるでしょうけど、Definitions、Rules、Erlang codeに分かれています。
@@ -63,13 +57,7 @@ Definitionsで定義された定義を仕様するには
 今回はこのように作成しました
 https://github.com/oskimura/ulang/blob/master/ulang/src/ulang.xrl
 
-<<<<<<< HEAD:compile.md
-### 構文解析器
-
--------------
-=======
 ## 構文解析器
->>>>>>> refs/remotes/origin/master:ErlangCompile.md
 同じようにErlangにはyeccという構文解析器があります。
 http://erlang.org/doc/man/yecc.html
 yeccはErlangのコンパイラコンパイラでBNFで文法を記述できます。
