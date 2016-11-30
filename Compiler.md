@@ -52,7 +52,7 @@ BNFは木のように再帰的な構造を持った文法を記述するのに�
 たとえばYACCはLALRというアルゴリズムを採用しています。
 
 例として以下にC言語のBNFのリンクを記載します。
-http://www.lysator.liu.se/c/ANSI-C-grammar-y.html
+[@CGrammar]
 
 
 #### 終端記号と非終端記号
