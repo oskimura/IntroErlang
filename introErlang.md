@@ -97,8 +97,10 @@ usage: factorial integer
 ````
 $ escript factorial 5
 ````
-詳しくは
-[@EscriptManual]
+詳しくはescript manual[^1]
+
+[^1]:http://erlang.org/doc/man/escript.html
+
 
 
 ## 整数実数
@@ -569,7 +571,6 @@ try ... ofで囲まれた式で例外が発生するとcatch以降でパタン�
 #### コンパイルオプション宣言
 コンパイラに指定するオプション
 http://erlang.org/doc/man/compile.html
-[@ErlangCompile]
 
 #### マクロ定義
 ````
