@@ -115,7 +115,7 @@ http://erlang.org/doc/man/erl_syntax.html
 生成された中間表現をコンパイルしてバイナリを出力するのはcompileモジュールでおこないます。　
 http://www.erlang.org/doc/man/compile.html
 
-今回はnoenv_forms関数を使用して[次のように書きました](https://github.com/oskimura/ulang/blob/master/ulang/src/compiler.erl#L13-L14)。
+今回はnoenv_forms関数を使用して次のように書きました[^11]。
 
 ````
 compile:noenv_forms(Spec,[return]) of
@@ -133,8 +133,8 @@ https://github.com/oskimura/ulang/blob/master/ulang/src/compiler.erl
 ## 中間表現について
 中間表現は基本的にタプルで表現され、{タグ名,ソース行数,引数1,引数2,...}といった形になっています。
 このタグのリストが中間表現です。compileモジュールの関数に渡すことでバイナリへとコンパイルされます。
-サンプルプログラム[^11]を例に説明します。
-Eralangの文法にかんしてはココ[^12]を参考にしてください。
+サンプルプログラム[^12]を例に説明します。
+Eralangの文法にかんしてはココ[^13]を参考にしてください。
 では中間表現の説明をしていきます。
 
 ### module宣言
@@ -474,6 +474,8 @@ Element1,Element2はリストの要素です。consは入れ子構造になっ�
 
 [^10]:https://gist.github.com/oskimura/7386c37260528bf208b1
 
-[^11]:https://gist.github.com/oskimura/e5b58a789e74be75c60c
+[^11]:https://github.com/oskimura/ulang/blob/master/ulang/src/compiler.erl#L13-L14
 
-[^12]:http://erlang.org/doc/reference_manual/expressions.html
+[^12]:https://gist.github.com/oskimura/e5b58a789e74be75c60c
+
+[^13]:http://erlang.org/doc/reference_manual/expressions.html
