@@ -512,6 +512,53 @@ Default := [Term]
 
 
 
+### 例外Try
+
+````
+try_fun() ->
+    try (1/0) of
+        X -> X
+    catch
+        Class:Reason ->
+            throw(Reason)
+    after
+        100
+    end
+````
+
+
+
+````
+{try,71,
+  [{op,71,'/',{integer,71,1},{integer,71,0}}],
+  [{clause,72,[{var,72,'X'}],[],[{var,72,'X'}]}],
+  [{clause,74,[{tuple,74,[{var,74,'Class'},{var,74,'Reason'},{var,74,'_'}]}],[],[{call,75,{atom,75,throw},[{var,75,'Reason'}]}]}],
+  [{integer,77,100}]
+  }
+````
+
+````
+  {'try',
+  Line,
+  Expr,
+  Match,
+  Catch,
+  After
+  }
+````
+
+
+````
+  {'try',
+  Line,
+  [Term],
+  [Clause],
+  [Clause],
+  [Term]
+  }
+````
+  
+
 最後に
 ---------------------------
 上記の情報があればBEAMで動く処理系が作れるとおもいます。中間表現の他の文法等についてはいろいろ試してみよう
