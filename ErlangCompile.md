@@ -478,6 +478,14 @@ list_fun() ->
 
 Element1,Element2はリストの要素です。consは入れ子構造になってます。
 
+### メッセージ送信
+
+````
+[{attribute,1,module,test},{function,2,main,0,
+[{clause,2,[],[],[{op,3,'!',{atom,3,test},{atom,3,a}}]}]}]
+````
+
+
 ### メッセージ受信
 
 ````
