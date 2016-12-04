@@ -137,6 +137,34 @@ https://github.com/oskimura/ulang/blob/master/ulang/src/compiler.erl
 Eralangの文法にかんしてはココ[^13]を参考にしてください。
 では中間表現の説明をしていきます。
 
+### 項
+中間表現の項は
+
+````
+Term := {Tag,Line,Val}
+````
+というタプルの形で表現されます。
+TagはErlangのアトム、Lineは行数、ValはErlangのデータです。
+
+### 節
+中間表現の節は
+
+````
+Clause:={clause,Line,Vars,Guard,Body},
+
+````
+````
+Line:= ingeger
+Vars := [Term]
+Guard:= [Term]
+Body:= [Term]
+````
+
+となります
+
+
+
+
 ### module宣言
 
 ````
@@ -449,6 +477,40 @@ list_fun() ->
 ````
 
 Element1,Element2はリストの要素です。consは入れ子構造になってます。
+
+### メッセージ受信
+
+````
+    receive
+        a ->
+            a;
+        b -> 
+            b
+    after 1000 ->
+            c
+    end
+````
+
+
+````
+    {receive,54,
+            [{clause,55,[{atom,55,a}],
+              [],[{atom,56,a}]},
+             {clause,57,[{atom,57,b}],
+              [],[{atom,58,b}]}],
+            {integer,59,1000},[{atom,60,c}]}
+````
+
+````
+Recieve := {'receive',Line, Matches, Timeout, Default}
+Matches := [Matche]
+Matche := {clause,Line,[Term]}
+Timeout := Term
+Default := [Term]
+````
+
+
+
 
 最後に
 ---------------------------
