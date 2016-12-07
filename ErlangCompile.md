@@ -643,7 +643,7 @@ tuple_fun() ->
 
 最後に
 ---------------------------
-上記の情報があればBEAMで動く処理系が作れるとおもいます。中間表現の他の文法等についてはいろいろ試してみよう
+上記の情報があればBEAMで動く処理系が作れるとおもいます。
 
 [^1]:https://github.com/oskimura/ulang/blob/master/ulang/src/ulang.xrl#L1-L7
 
