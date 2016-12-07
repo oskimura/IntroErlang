@@ -570,7 +570,43 @@ try_fun() ->
 ````
   
 
-### 内包表記
+### リスト内包表記
+
+````
+    List = [1,2],
+    [X*2 || X <- List, X < 5]
+````
+
+````
+ {lc,65,
+  {op,65,'*',{var,65,'X'},{integer,65,2}},
+  [{generate,65,{var,65,'X'},{var,65,'List'}},
+   {op,65,'<',{var,65,'X'},{integer,65,5}}]}
+````
+
+### バイナリ内包表記
+
+````
+bconp_fun() ->
+    << <<X>> || X <- <<1, 2, 3>> >>.
+````
+
+````
+{function,63,bconp_fun,0,
+[{clause,63,[],[],
+[
+{bc,64,
+  {bin,64,[{bin_element,64,{var,64,'X'},default,default}]},
+  [{generate,64,{var,64,'X'},
+    {bin,64,
+              [{bin_element,64,{integer,64,1},default,default},
+               {bin_element,64,{integer,64,2},default,default},
+               {bin_element,64,{integer,64,3},default,default}]}}]
+
+}]}]}
+````
+
+
 ### ガードシーケンス
 ### ブロック
 ### タプル
