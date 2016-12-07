@@ -623,6 +623,16 @@ block_fun() ->
 ````
 
 ### タプル
+
+````
+tuple_fun() ->
+    {a,b,c}.
+````
+
+````
+{function,71,tuple_fun,0,[{clause,71,[],[],[{tuple,72,[{atom,72,a},{atom,72,b},{atom,72,c}]}]}]}
+````
+
 ### レコード
 
 
