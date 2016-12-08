@@ -712,6 +712,14 @@ block_fun() ->
 ````
 {function,74,block_fun,0,[{clause,74,[],[],[{block,75,[{op,76,'+',{integer,76,1},{integer,76,1}}]}]}]}
 ````
+と変換されます。
+
+````
+{'block',Line,[Term]}
+````
+Lineは行数、Termは任意の項です。
+
+
 
 ### タプル
 
