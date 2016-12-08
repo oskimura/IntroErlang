@@ -681,6 +681,21 @@ bconp_fun() ->
 
 }]}]}
 ````
+と変換されます。
+
+
+{bc,64,
+  {bin,64,[{bin_element,64,{var,64,'X'},default,default}]},
+  [{generate,64,{var,64,'X'},
+    {bin,64,
+              [{bin_element,64,{integer,64,1},default,default},
+               {bin_element,64,{integer,64,2},default,default},
+               {bin_element,64,{integer,64,3},default,default}]}}]
+
+}
+
+
+generator
 
 
 ### ガードシーケンス
