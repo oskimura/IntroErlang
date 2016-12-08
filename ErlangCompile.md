@@ -610,6 +610,38 @@ try_fun() ->
   [{generate,65,{var,65,'X'},{var,65,'List'}},
    {op,65,'<',{var,65,'X'},{integer,65,5}}]}
 ````
+となります。
+
+
+````
+ {'lc',Line,Term,[Qualifier]}
+````
+Lineは行数、
+Termは任意の項、
+QualifierはGeneratorもしくはFilterとなります。
+
+````
+Qualifier := Generator | Filter
+````
+
+````
+Generator := {generate,Line,Pattern,ListExpr}
+````
+
+````
+Pattern:=Term
+ListExpr:=Term
+````
+
+Patternが変数であればListExprの評価結果が束縛されます
+
+````
+Filter := Term
+````
+Filterは変数に対して評価を行っていればtureの値のみをフィルターします。
+
+
+
 
 ### バイナリ内包表記
 
