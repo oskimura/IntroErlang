@@ -571,6 +571,9 @@ Timeout := Term
 Default := [Term]
 ````
 
+Matchesは受信をパンマッチする節のリストです。
+Timeoutはタイムアウトするミリ秒。
+Defaultはタイムアウト時のタイムアウト処理をするための項のリストです。
 
 
 
