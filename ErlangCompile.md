@@ -608,17 +608,17 @@ try_fun() ->
   After
   }
 ````
-
-
 ````
-  {'try',
-  Line,
-  [Term],
-  [Clause],
-  [Clause],
-  [Term]
-  }
+Expr := [Term],
+Match := [Clause],
+Catch := [Clause],
+After := [Term]
 ````
+
+Exprは例外が起きる可能性のある項のリスト
+MatchはExprの返り値をパタンマッチする節のリスト
+Catchは例外をパタンマッチする節のリスト
+AfterはJavaのfinalに相当し例外が発生するかどうかにかかわらず実行されます。
 
 
 ### リスト内包表記
