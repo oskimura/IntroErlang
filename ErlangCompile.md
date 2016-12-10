@@ -531,6 +531,14 @@ bit_type := integer | float | binary | bytes | bitstring | bits | utf8 | utf16 |
 [{clause,2,[],[],[{op,3,'!',{atom,3,test},{atom,3,a}}]}]}]
 ````
 
+中間表現を一般化すると次のようになります。
+
+````
+  {op,Line,'!',Term1,Term2}
+````
+
+'!'は演算子の一種として扱われています。Term1にTerm2をメッセージとして送ります。
+
 
 ### メッセージ受信
 
