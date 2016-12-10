@@ -558,7 +558,7 @@ bit_type := integer | float | binary | bytes | bitstring | bits | utf8 | utf16 |
     end
 ````
 
-
+というサンプルは
 ````
     {receive,54,
             [{clause,55,[{atom,55,a}],
@@ -567,7 +567,9 @@ bit_type := integer | float | binary | bytes | bitstring | bits | utf8 | utf16 |
               [],[{atom,58,b}]}],
             {integer,59,1000},[{atom,60,c}]}
 ````
+と変換されます。
 
+中間表現を一般化すると
 ````
 Recieve := {'receive',Line, Matches, Timeout, Default}
 Matches := [Matche]
@@ -575,7 +577,6 @@ Matche := {clause,Line,[Term]}
 Timeout := Term
 Default := [Term]
 ````
-
 Matchesは受信をパンマッチする節のリストです。
 Timeoutはタイムアウトするミリ秒。
 Defaultはタイムアウト時のタイムアウト処理をするための項のリストです。
@@ -595,8 +596,7 @@ try_fun() ->
         100
     end
 ````
-
-
+のサンプルは次のように変換されます。
 
 ````
 {try,71,
@@ -606,6 +606,8 @@ try_fun() ->
   [{integer,77,100}]
   }
 ````
+
+一般化すると
 
 ````
   {'try',
@@ -682,7 +684,7 @@ Filterは変数に対して評価を行っていればtureの値のみをフィ�
 bconp_fun() ->
     << <<X>> || X <- <<1, 2, 3>> >>.
 ````
-
+のサンプルは
 ````
 {function,63,bconp_fun,0,
 [{clause,63,[],[],
@@ -723,7 +725,7 @@ block_fun() ->
         1+1
     end.
 ````
-
+というサンプルは
 
 ````
 {function,74,block_fun,0,[{clause,74,[],[],[{block,75,[{op,76,'+',{integer,76,1},{integer,76,1}}]}]}]}
@@ -743,6 +745,7 @@ Lineは行数、Termは任意の項です。
 tuple_fun() ->
     {a,b,c}.
 ````
+というサンプルは
 
 ````
 {function,71,tuple_fun,0,[{clause,71,[],[],[{tuple,72,[{atom,72,a},{atom,72,b},{atom,72,c}]}]}]}
