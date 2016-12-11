@@ -512,13 +512,20 @@ Element1,Element2はリストの要素です。consは入れ子構造になっ�
 ### ビットシンタックス
 
 ````
+binary_fun() ->
+    <<"abc">>.
+````
+
+
+````
 {function,47,binary_fun,0,[{clause,47,[],[],[{bin,48,[{bin_element,48,{string,48,"abc"},default,default}]}]}]}
 ````
-
 ````
-{bin,Line,[{bin_element,48,{string,48,"abc"},default,default}]}
+{bin,Line,[BinElement]}
 ````
 
+BinElementはバイナリのセグメントを表してます。
+BinElementは
 ````
 {bin_element,Line,Bit_expr,bit_size,[bit_type]}
 Bit_expr := Term
