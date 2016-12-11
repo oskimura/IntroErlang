@@ -465,13 +465,13 @@ CPUネイティブの エンディアン
 * bsr
 右シフト
 * band
-bit and
+bit論理積
 * bor
-bit or
+bit論理和
 * bxor
-bit xor
+bit排他的論理和
 * bnot
-bit not
+bit論理否定
 
 ### バイナリのパタンマッチ
 たとえば、
