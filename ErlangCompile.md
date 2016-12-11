@@ -524,6 +524,11 @@ Element1,Element2はリストの要素です。consは入れ子構造になっ�
 Bit_expr := Term
 bit_size := default | integer
 ````
+となります。
+Bit_exprはセグメントを表します。
+bit_sizeはセグメントのサイズ整数もしくは'default'です。
+
+bit_typeは次のようになります。
 
 ````
 bit_type := integer | float | binary | bytes | bitstring | bits | utf8 | utf16 | utf32
@@ -680,6 +685,10 @@ Filterは変数に対して評価を行っていればtureの値のみをフィ�
 
 ### バイナリ内包表記
 
+バイナリを生成する内包表記です。
+リスト内包表記との違いはExprがバイナリであることと、
+Generatorがb_generateであることです。
+
 ````
 bconp_fun() ->
     << <<X>> || X <- <<1, 2, 3>> >>.
@@ -701,7 +710,7 @@ bconp_fun() ->
 ````
 と変換されます。
 
-
+````
 {bc,64,
   {bin,64,[{bin_element,64,{var,64,'X'},default,default}]},
   [{generate,64,{var,64,'X'},
@@ -711,10 +720,33 @@ bconp_fun() ->
                {bin_element,64,{integer,64,3},default,default}]}}]
 
 }
+````
+一般化すると
 
+````
+{bc,Line,Expr,[Qualifier]}
+````
 
-generator
+リスト内包表記とちがいExprはバイナリのみです。
+````
+Expr := binary
+````
 
+````
+Qualifier := Generator | Filter
+````
+
+リスト内包表記と違いb_generateです。
+````
+Generator := {b_generate,Line,Pattern,BinaryExpr}
+````
+````
+Pattern:=Term
+BinaryExpr:=Term
+````
+````
+Filter := Term
+````
 
 ### ガードシーケンス
 ### ブロック
