@@ -544,6 +544,12 @@ bit_type := integer | float | binary | bytes | bitstring | bits | utf8 | utf16 |
 ### メッセージ送信
 
 ````
+send_fun() ->
+    a ! a.
+````
+
+
+````
 [{attribute,1,module,test},{function,2,main,0,
 [{clause,2,[],[],[{op,3,'!',{atom,3,test},{atom,3,a}}]}]}]
 ````
