@@ -21,7 +21,7 @@ INT        = [0-9]+
 ATOM       = :[a-z_]+
 VAR        = [a-z0-9_]+
 CHAR       = [a-z0-9_]
-WHITESPACE = [\s\t\n\r]
+WHITESPACE = [\\s\\t\\n\\r]
 ````
 
 Rulesは生成するトークンを記述します。
