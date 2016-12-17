@@ -1,3 +1,3 @@
-pandoc preamble.md introErlang.md Compiler.md  beam.md  ErlangCompile.md  -o IntroductionMakeCompilerWithErlang.tex --bibliography references.bib \
+pandoc preamble.md introErlang.md Compiler.md  beam.md  ErlangCompile.md  Ulang.md -o IntroductionMakeCompilerWithErlang.tex --bibliography references.bib \
 && platex manuscript.tex \
 && dvipdfmx manuscript.dvi
